@@ -29,6 +29,6 @@ public class LanQiuPager extends BasePager {
 
         flContent.addView(view);
 
-        tvTitle.setText("篮球联赛");
+        tvTitle.setText("篮球赛程");
     }
 }

@@ -7,27 +7,22 @@ import android.widget.TextView;
 
 import app.yy.cn.jrdt.base.BaseMenuDetailPager;
 
-/**页签
- * Created by Administrator on 2016/11/17 0017.
+/**
+ * Created by Administrator on 2016/11/21 0021.
  */
-public class TabDetailPager extends BaseMenuDetailPager{
-
-
-    public TabDetailPager(Activity activity) {
+public class KuoZhanMenuDetailPager extends BaseMenuDetailPager {
+    public KuoZhanMenuDetailPager(Activity activity) {
         super(activity);
     }
 
     @Override
     public View initView() {
+        //给针布局填充布局对象
         TextView view = new TextView(mActivity);
-        view.setText("今日新闻");
+        view.setText("菜单详情页-扩展");
         view.setTextSize(25);
         view.setGravity(Gravity.CENTER);
-        return view;
-    }
 
-    @Override
-    public void initData() {
-        super.initData();
+        return view;
     }
 }

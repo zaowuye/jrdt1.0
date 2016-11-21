@@ -7,8 +7,11 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+
 import java.util.ArrayList;
 
+import app.yy.cn.jrdt.MainActivity;
 import app.yy.cn.jrdt.R;
 import app.yy.cn.jrdt.base.BasePager;
 import app.yy.cn.jrdt.base.impl.GuShiPager;
@@ -78,12 +81,18 @@ public class ContentFragment extends BaseFragment {
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                BasePager pager = mPager.get(position);
-                pager.initData();
+
             }
 
             @Override
             public void onPageSelected(int position) {
+                BasePager pager = mPager.get(position);
+                pager.initData();
+
+                if (position == 0 || position == 1 || position == 2 || position == 3) {
+                    setSlidingMenuEnable(true);
+                }
+
 
             }
 
@@ -93,7 +102,23 @@ public class ContentFragment extends BaseFragment {
             }
         });
         mPager.get(0).initData();
+        setSlidingMenuEnable(true);
     }
+
+    /**
+     * 开启或禁用侧边栏
+     *
+     */
+        protected void setSlidingMenuEnable(boolean enable){
+            //获取侧边栏
+            MainActivity mainUI = (MainActivity) mActivity;
+            SlidingMenu slidingMenu = mainUI.getSlidingMenu();
+            if (enable){
+                slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+            }else {
+                slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+            }
+        }
 
     class ContentAdapter extends PagerAdapter {
 
@@ -120,5 +145,10 @@ public class ContentFragment extends BaseFragment {
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((View) object);
         }
+    }
+
+    public XinWenPager getXinWenCenterPager(){
+        XinWenPager pager = (XinWenPager) mPager.get(0);
+        return pager;
     }
 }
