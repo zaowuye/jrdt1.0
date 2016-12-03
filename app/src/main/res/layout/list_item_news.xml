@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingEnd="10dp"
+    >
+
+    <ImageView
+        android:layout_marginRight="5dp"
+        android:id="@+id/iv_icon"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:background="#a000"
+        android:padding="1dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="松江村会计为干女儿挪数百万公款 足浴店邂逅一见倾心的萨达四大四大四大的"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:text="法制日报"
+        android:textColor="#8000"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_toRightOf="@+id/tv_name"
+        android:layout_marginLeft="10dp"
+        android:text="2016-11-28 20:06"
+        android:textColor="#8000"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp" />
+
+</RelativeLayout>

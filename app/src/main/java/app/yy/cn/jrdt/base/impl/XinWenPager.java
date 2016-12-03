@@ -119,7 +119,7 @@ public class XinWenPager extends BasePager {
 
         //初始化4个菜单详情页
         mMenuDetaiPagers = new ArrayList<>();
-        mMenuDetaiPagers.add(new XinWenMenuDetailPager(mActivity));
+        mMenuDetaiPagers.add(new XinWenMenuDetailPager(mActivity,xinWenData.data.get(0).children));
         mMenuDetaiPagers.add(new JieMengMenuDetailPager(mActivity));
         mMenuDetaiPagers.add(new XingZuoMenuDetailPager(mActivity));
         mMenuDetaiPagers.add(new KuoZhanMenuDetailPager(mActivity));

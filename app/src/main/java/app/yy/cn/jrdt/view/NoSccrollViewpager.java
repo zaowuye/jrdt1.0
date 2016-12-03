@@ -23,4 +23,9 @@ public class NoSccrollViewpager extends ViewPager {
         //重写方法，触摸不滑动
         return true;
     }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return false;
+    }
 }
