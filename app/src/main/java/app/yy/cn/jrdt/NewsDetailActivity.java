@@ -25,12 +25,14 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import app.yy.cn.jrdt.bean.XinWenTabBean;
 import app.yy.cn.jrdt.fragment.ContentFragment;
 import app.yy.cn.jrdt.fragment.LeftMenuFragment;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
  * 新闻详情页面
  * Created by Administrator on 2016/11/13 0013.
  */
-public class NewsDetailActivity extends Activity implements View.OnClickListener{
+public class NewsDetailActivity extends Activity implements View.OnClickListener {
 
     @ViewInject(R.id.ll_control)
     private LinearLayout llControl;
@@ -47,10 +49,15 @@ public class NewsDetailActivity extends Activity implements View.OnClickListener
     @ViewInject(R.id.pb_loading)
     private ProgressBar pbLoding;
     private String mUrl;
+    private String mTitle;
+    private String mName;
+    private String mImage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ShareSDK.initSDK(this);
         setContentView(R.layout.activity_news_detai);
         ViewUtils.inject(this);
 
@@ -64,6 +71,9 @@ public class NewsDetailActivity extends Activity implements View.OnClickListener
 
 
         mUrl = getIntent().getStringExtra("url");
+        mTitle = getIntent().getStringExtra("title");
+        mImage = getIntent().getStringExtra("img");
+        mName = getIntent().getStringExtra("name");
         mWebView.loadUrl(mUrl);
 
         WebSettings settings = mWebView.getSettings();
@@ -71,36 +81,36 @@ public class NewsDetailActivity extends Activity implements View.OnClickListener
         settings.setUseWideViewPort(true);//双击缩放
         settings.setJavaScriptEnabled(true);//支持JS功能
 
-       mWebView.setWebViewClient(new WebViewClient(){
-           //开始加载
-           @Override
-           public void onPageStarted(WebView view, String url, Bitmap favicon) {
-               super.onPageStarted(view, url, favicon);
-               System.out.println("开始加载网页啦");
-               pbLoding.setVisibility(View.VISIBLE);
-           }
+        mWebView.setWebViewClient(new WebViewClient() {
+            //开始加载
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                System.out.println("开始加载网页啦");
+                pbLoding.setVisibility(View.VISIBLE);
+            }
 
-           //加载结束
-           @Override
-           public void onPageFinished(WebView view, String url) {
-               super.onPageFinished(view, url);
-               System.out.println("网页加载结束");
-               pbLoding.setVisibility(View.INVISIBLE);
-           }
+            //加载结束
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                System.out.println("网页加载结束");
+                pbLoding.setVisibility(View.INVISIBLE);
+            }
 
-           //链接跳转强制在当前WebView里面加载
-           @Override
-           public boolean shouldOverrideUrlLoading(WebView view, String url) {
-               System.out.println("链接"+url);
-               view.loadUrl(url);
-               return true;
-           }
-       });
+            //链接跳转强制在当前WebView里面加载
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                System.out.println("链接" + url);
+                view.loadUrl(url);
+                return true;
+            }
+        });
 
 //        mWebView.goBack();//
 //        mWebView.goForward();
 
-        mWebView.setWebChromeClient(new WebChromeClient(){
+        mWebView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
@@ -127,7 +137,7 @@ public class NewsDetailActivity extends Activity implements View.OnClickListener
                 break;
 
             case R.id.btn_share:
-//                showShare();
+                showShare();
                 break;
 
             default:
@@ -145,8 +155,8 @@ public class NewsDetailActivity extends Activity implements View.OnClickListener
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("字体设置");
 
-        String[] items = new String[] { "超大号字体", "大号字体", "正常字体", "小号字体",
-                "超小号字体" };
+        String[] items = new String[]{"超大号字体", "大号字体", "正常字体", "小号字体",
+                "超小号字体"};
 
         builder.setSingleChoiceItems(items, mCurrenWhich,
                 new DialogInterface.OnClickListener() {
@@ -200,6 +210,33 @@ public class NewsDetailActivity extends Activity implements View.OnClickListener
         builder.setNegativeButton("取消", null);
 
         builder.show();
+    }
+
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用+
+        oks.setTitle(mTitle);
+        // titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setTitleUrl(mUrl);
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText(mName);
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl(mUrl);
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("想评论点什么呢....");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(mName);
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl(mUrl);
+
+        // 启动分享GUI
+        oks.show(this);
     }
 
 }
