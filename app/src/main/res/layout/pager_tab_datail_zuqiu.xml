@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <app.yy.cn.jrdt.view.PubllToReFreshListViewe
+        android:id="@+id/lv_list_zuqiu"
+        android:cacheColorHint="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#a9b7b7"
+        android:dividerHeight="0.5dp">
+
+    </app.yy.cn.jrdt.view.PubllToReFreshListViewe>
+
+</LinearLayout>

@@ -1,6 +1,7 @@
 package app.yy.cn.jrdt.base.impl;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -18,6 +19,7 @@ import app.yy.cn.jrdt.base.impl.menu.KuoZhanMenuDetailPager;
 import app.yy.cn.jrdt.base.impl.menu.XinWenMenuDetailPager;
 import app.yy.cn.jrdt.base.impl.menu.XingZuoMenuDetailPager;
 import app.yy.cn.jrdt.bean.XinWenMenu;
+import app.yy.cn.jrdt.bean.ZuQiuMenu;
 import app.yy.cn.jrdt.fragment.LeftMenuFragment;
 import app.yy.cn.jrdt.tool.CacheUtils;
 import app.yy.cn.jrdt.tool.Url;
@@ -99,6 +101,7 @@ public class XinWenPager extends BasePager {
 //        });
         String result = Url.XW_BASE;
         processData(Url.XW_BASE);
+        //写缓存
         CacheUtils.setCache(Url.XW_BASE,result,mActivity);
     }
 
@@ -110,6 +113,7 @@ public class XinWenPager extends BasePager {
         Gson gson = new Gson();
         xinWenData = gson.fromJson(json, XinWenMenu.class);
 
+
         //获取侧边栏对象
         MainActivity mainUI = (MainActivity) mActivity;
         LeftMenuFragment fragment = mainUI.getLeftMenuFragment();
@@ -118,6 +122,7 @@ public class XinWenPager extends BasePager {
         fragment.setMenuData(xinWenData.data);
 
         //初始化4个菜单详情页
+
         mMenuDetaiPagers = new ArrayList<>();
         mMenuDetaiPagers.add(new XinWenMenuDetailPager(mActivity,xinWenData.data.get(0).children));
         mMenuDetaiPagers.add(new JieMengMenuDetailPager(mActivity));

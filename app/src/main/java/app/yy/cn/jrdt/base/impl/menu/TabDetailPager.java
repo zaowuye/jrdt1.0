@@ -59,6 +59,8 @@ public class TabDetailPager extends BaseMenuDetailPager {
         mUrl = mTabData.url;
     }
 
+
+
     @Override
     public View initView() {
         //给针布局填充布局对象
@@ -162,6 +164,7 @@ public class TabDetailPager extends BaseMenuDetailPager {
     private void processData(String result,boolean isMore) {
         Gson gson = new Gson();
         XinWenTabBean xinWenTabBean = gson.fromJson(result, XinWenTabBean.class);
+        System.out.println(xinWenTabBean);
 
 //        加载 更多
 //        String moreUrl = xinWenTabBean.result.下一页地址;
@@ -268,8 +271,6 @@ public class TabDetailPager extends BaseMenuDetailPager {
             }else {
                 holder.tvTitle.setTextColor(Color.BLACK);
             }
-
-
 
             mBitmapUtils.display(holder.ivIcon, news.thumbnail_pic_s);
             return view;

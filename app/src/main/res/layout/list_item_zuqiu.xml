@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:paddingTop="12dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#f00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/c1"
+            android:textSize="20sp"
+            android:text="已结束"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/c4T1"
+            android:text="沃特福德"/>
+        <TextView
+            android:id="@+id/c4R"
+            android:paddingLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:text="3-2"
+            />
+        <TextView
+            android:paddingLeft="10dp"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/c4T2"
+            android:text="埃弗顿"/>
+
+    </LinearLayout>
+
+
+<LinearLayout
+    android:gravity="center"
+    android:paddingTop="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:paddingLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/c2"
+        android:text="12-10周六"
+        />
+
+    <TextView
+
+        android:paddingLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/c3"
+        android:text="20:30"
+        />
+    <TextView
+        android:textColor="#A066D3"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        android:id="@+id/c51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="全场统计"/>
+    <TextView
+        android:textColor="#A066D3"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        android:id="@+id/c52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图文战报"/>
+
+</LinearLayout>
+
+
+</LinearLayout>

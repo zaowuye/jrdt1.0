@@ -12,7 +12,7 @@ public class Url {
 
     public static final String ZQ_LS_URL = "http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=";
     public static final String ZQ_QD_URL = "http://op.juhe.cn/onebox/football/team?key=874e2954485153bc761c6014a426564e&team=";
-
+    public static final String ZQ_BASE = "{\"data\":[{\"children\":[{\"id\":10007,\"title\":\"欧冠\",\"type\":1,\"url\":\"http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=欧冠\"},{\"id\":10006,\"title\":\"英超\",\"type\":1,\"url\":\"http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=英超\"},{\"id\":10008,\"title\":\"中超\",\"type\":1,\"url\":\"http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=中超\"},{\"id\":10010,\"title\":\"西甲\",\"type\":1,\"url\":\"http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=西甲\"},{\"id\":10091,\"title\":\"德甲\",\"type\":1,\"url\":\"http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=德甲\"},{\"id\":10012,\"title\":\"意甲\",\"type\":1,\"url\":\"http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=意甲\"},{\"id\":10095,\"title\":\"法甲\",\"type\":1,\"url\":\"http://op.juhe.cn/onebox/football/league?key=874e2954485153bc761c6014a426564e&league=法甲\"}]}],\"retcode\":200}";
     public static final String TQ_URL = "http://op.juhe.cn/onebox/weather/query?cityname=";
     public static final String TQ_KEY = "&key=9a2c5032bea177f0a0f6b4f01e4ca028";
 
