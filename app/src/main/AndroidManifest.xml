@@ -21,6 +21,7 @@
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.PageIndicatorDefaults"></activity>
         <activity android:name=".NewsDetailActivity"/>
+        <activity android:name=".ZuQiuDetailActivity"/>
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
