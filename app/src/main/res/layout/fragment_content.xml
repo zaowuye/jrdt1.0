@@ -43,6 +43,6 @@
             android:id="@+id/gushi"
             style="@style/Bottom_Tab_Style"
             android:drawableTop="@drawable/tab_gushi_selector"
-            android:text="股市"/>
+            android:text="个人"/>
     </RadioGroup>
 </LinearLayout>
